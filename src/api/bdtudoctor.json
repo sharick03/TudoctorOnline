@@ -1,0 +1,139 @@
+{
+  "Pacientes": [
+    {
+      "id": 1,
+      "TipoDocumento": "Cedula de ciudadania",
+      "Identificacion": 101845102,
+      "Nombre_Apellido": "Maikol Sanchez",
+      "FechaNaciPaci": "1984-08-25",
+      "Telefono": 301509632,
+      "clave": 1234
+    },
+    {
+      "id": 2,
+      "TipoDocumento": "Cedula de ciudadania",
+      "Identificacion": 101258741,
+      "Nombre_Apellido": "Catalina Santana",
+      "FechaNaciPaci": "1994-12-12",
+      "Telefono": 3202366632,
+      "clave": 1234
+    },
+    {
+      "TipoDocumento": "CedulaCiudadania",
+      "Identificacion": "101000",
+      "Nombre_Apellido": "Edward Ediver Restrepo",
+      "FechaNaciPaci": "2023-08-29",
+      "Telefono": "100000",
+      "Clave": "1234",
+      "id": 3
+    },
+    {
+      "TipoDocumento": "CedulaCiudadania",
+      "Identificacion": "101000",
+      "Nombre_Apellido": "Eimmy Luciana Londoño Carmona",
+      "FechaNaciPaci": "2023-08-29",
+      "Telefono": "10000",
+      "Clave": "1111",
+      "id": 4
+    },
+    {
+      "TipoDocumento": "CedulaCiudadania",
+      "Identificacion": "101000",
+      "Nombre_Apellido": "Edward Ediver Restrepo",
+      "FechaNaciPaci": "2023-08-29",
+      "Telefono": "100000000",
+      "Clave": "1234",
+      "id": 5
+    }
+  ],
+  "Doctor": [
+    {
+      "id": 1,
+      "NombreDoctor": "Albeiro Marin",
+      "Especialidad": "Medicina general",
+      "Correo": "Marindoc@gmail.com"
+    },
+    {
+      "id": 2,
+      "NombreDoctor": "Zulma Perez",
+      "Especialidad": "Pediatria",
+      "Correo": "doczulma@gmail.com"
+    },
+    {
+      "id": 3,
+      "NombreDoctor": "Jeison Candela",
+      "Especialidad": "Odontologia",
+      "Correo": "Candelajeison@gmail.com"
+    },
+    {
+      "NombreDoctor": "Guillermo Cartro",
+      "Especialidad": "Pediatria",
+      "Correo": "memocastro@gmail",
+      "id": 4
+    }
+  ],
+  "Agenda": [
+    {
+      "id": 1,
+      "Fecha": "2023-06-01",
+      "Hora": "9:00",
+      "Doctor": 1,
+      "Lugar": "calle 52",
+      "Especialidad": "Medicina general"
+    },
+    {
+      "id": 2,
+      "Fecha": "2023-06-03",
+      "Hora": "9:40",
+      "Doctor": 2,
+      "Lugar": "floresta",
+      "Especialidad": "Medicina general"
+    },
+    {
+      "id": 3,
+      "Fecha": "2023-06-04",
+      "Hora": "8:40",
+      "Doctor": 1,
+      "Lugar": "calle 42",
+      "Especialidad": "Medicina general"
+    }
+  ],
+  "Citas": [
+    {
+      "id": 3,
+      "idPaciente": 3,
+      "idAgenda": 3,
+      "idMedico": 2,
+      "FechaCita": "2023-06-04",
+      "HoraCita": "8:40",
+      "Lugar": "calle 52",
+      "NombreDoctor": "Albeiro Marin",
+      "NumeroAutorizacion": "7410258",
+      "Especialidad": "Medicina general"
+    },
+    {
+      "id": 3,
+      "idPaciente": 3,
+      "idAgenda": 3,
+      "idMedico": 2,
+      "FechaCita": "2023-06-04",
+      "HoraCita": "8:40",
+      "Lugar": "calle 52",
+      "NombreDoctor": "Albeiro Marin",
+      "NumeroAutorizacion": "7410258",
+      "Especialidad": "Medicina general"
+    },
+    {
+      "id": 3,
+      "idPaciente": 3,
+      "idAgenda": 3,
+      "idMedico": 2,
+      "FechaCita": "2023-06-04",
+      "HoraCita": "8:40",
+      "Lugar": "calle 52",
+      "NombreDoctor": "Albeiro Marin",
+      "NumeroAutorizacion": "7410258",
+      "Especialidad": "Medicina general"
+    }
+  ]
+}
