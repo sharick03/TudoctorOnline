@@ -5,17 +5,17 @@ import withReactContent from "sweetalert2-react-content";
 import { Link } from "react-router-dom";
 import { show_alerta } from "../../functions";
 
-const ListarDoctor = () => {
-    const url = "http://localhost:5000/Doctor";
+const ListarPaciente = () => {
+    const url = "http://localhost:5000/Paciente";
 
-    const [Doctor, setDoctor] = useState([]);
+    const [Paciente, setPaciente] = useState([]);
     useEffect(() => {
-        getDoctor();
+        getPaciente();
     },[]);
     
-    const getDoctor = async() =>{
+    const getPaciente = async() =>{
         const respuesta = await axios.get(url);
-        setDoctor(respuesta.data);
+        setPaciente(respuesta.data);
     }
 
     // Define la función envarSolicitud para manejar solicitudes DELETE
@@ -27,17 +27,17 @@ const ListarDoctor = () => {
         show_alerta(msj, tipo);
         
         if (tipo === 'success') {
-        show_alerta('Doctor Eliminado');
-        getDoctor();
+        show_alerta('Paciente Eliminado');
+        getPaciente();
         }
     } catch (error) {
-        show_alerta('Error al eliminar la cita');
+        show_alerta('Error al eliminar Paciente');
         console.error(error);
     }
     }
 
     // ELIMINAR
-    const deleteDoctor = async (id) => {
+    const deletePaciente = async (id) => {
         const MySwal = withReactContent(Swal);
         const confirmationResult = await MySwal.fire({
           title: '¿Está seguro de eliminar este usuario?',
@@ -117,15 +117,15 @@ const ListarDoctor = () => {
                 <div className="container-fluid">
                 <div className="row mb-2">
                     <div className="col-sm-6">
-                    <h1>Doctores</h1>
+                    <h1>Pacientes</h1>
                     </div>
                 </div>
                 </div>
             </section>
             <section className="content">
                 <div className="col-md-3">
-                <Link to={"/RegistroDoctor"} className="btn btn-primary btn-block mb-3">
-                    <b>Agregar Doctor</b>
+                <Link to={"/RegistroPaciente"} className="btn btn-primary btn-block mb-3">
+                    <b>Agregar Paciente</b>
                 </Link>
                 </div>
                 <div className="row">
@@ -135,25 +135,26 @@ const ListarDoctor = () => {
                         <table className="table table-bordered">
                             <thead>
                             <tr>
-                                <th style={{ width: '15%' }}>id</th>
-                                <th style={{ width: '15%' }}>Nombre</th>
-                                <th style={{ width: '15%' }}>Especialidad</th>
-                                <th style={{ width: '20%' }}>Correo</th>
+                                <th style={{ width: '15%' }}>TipoDocumento</th>
+                                <th style={{ width: '15%' }}>Identificacion</th>
+                                <th style={{ width: '15%' }}>Nombre_Apellido</th>
+                                <th style={{ width: '20%' }}>FechaNaciPaci</th>
+                                <th style={{ width: '20%' }}>Telefono</th>
+                                <th style={{ width: '20%' }}>Clave</th>
                                 <th style={{ width: '15%' }}>Acción</th>
                             </tr>
                             </thead>
                             <tbody className="table-group-divider">
-                            { Doctor.map( (Doctor, i)=>(
-                            <tr key={Doctor.id}>
+                            { Paciente.map( (Paciente, i)=>(
+                            <tr key={Paciente.id}>
                                 <td>{(i+1)}</td>
-                                <td>{Doctor.NombreDoctor}</td>
-                                <td>{Doctor.Especialidad}</td>
-                                <td>{Doctor.Correo}</td>
+                                <td>{Paciente.NombreDoctor}</td>
+                                <td>{Paciente.Especialidad}</td>
+                                <td>{Paciente.Correo}</td>
                                 <td>
-                                <Link to={`/EditarDoctor/${Doctor.id}`} className='btn btn-warning'>Editar</Link>
-
-                                    &nbsp;
-                                    <button onClick={()=>deleteDoctor(Doctor.id)}
+                                <Link to={`/EditarPaciente/${Paciente.id}`} className='btn btn-warning'>Editar</Link>
+                                &nbsp;
+                                    <button onClick={()=>deletePaciente(Paciente.id)}
                                         className="btn btn-danger" >
                                         <i className="fa-solid fa-trash"></i>
                                     </button>
@@ -180,4 +181,4 @@ const ListarDoctor = () => {
         </div>
     );
 };
-export default ListarDoctor;
+export default ListarPaciente;

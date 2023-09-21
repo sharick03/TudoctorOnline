@@ -10,130 +10,94 @@
       "clave": 1234
     },
     {
-      "id": 2,
-      "TipoDocumento": "Cedula de ciudadania",
-      "Identificacion": 101258741,
-      "Nombre_Apellido": "Catalina Santana",
-      "FechaNaciPaci": "1994-12-12",
-      "Telefono": 3202366632,
-      "clave": 1234
+      "TipoDocumento": "CC",
+      "Identificacion": "101000",
+      "Nombre_Apellido": "Edward Ediver Restrepo",
+      "FechaNaciPaci": "10 05 2005",
+      "Telefono": "1234",
+      "Clave": "1234",
+      "id": 2
     },
     {
       "TipoDocumento": "CedulaCiudadania",
       "Identificacion": "101000",
-      "Nombre_Apellido": "Edward Ediver Restrepo",
-      "FechaNaciPaci": "2023-08-29",
-      "Telefono": "100000",
+      "Nombre_Apellido": "Sharick",
+      "FechaNaciPaci": "2023-08-30",
+      "Telefono": "1234",
       "Clave": "1234",
       "id": 3
     },
     {
-      "TipoDocumento": "CedulaCiudadania",
-      "Identificacion": "101000",
-      "Nombre_Apellido": "Eimmy Luciana Londoño Carmona",
-      "FechaNaciPaci": "2023-08-29",
-      "Telefono": "10000",
-      "Clave": "1111",
+      "TipoDocumento": "TarjetaIdentidad",
+      "Identificacion": "1014478458",
+      "Nombre_Apellido": "Edward Ediver Restrepo",
+      "FechaNaciPaci": "2007-01-27",
+      "Telefono": "300147852",
+      "Clave": "1234",
       "id": 4
     },
     {
-      "TipoDocumento": "CedulaCiudadania",
-      "Identificacion": "101000",
-      "Nombre_Apellido": "Edward Ediver Restrepo",
-      "FechaNaciPaci": "2023-08-29",
-      "Telefono": "100000000",
-      "Clave": "1234",
+      "Identificacion": "1014478458",
+      "Clave": "1111111",
       "id": 5
+    },
+    {
+      "TipoDocumento": "CedulaCiudadania",
+      "Identificacion": "12347856",
+      "Nombre_Apellido": "Narly Sanches",
+      "FechaNaciPaci": "2023-08-31",
+      "Telefono": "12587410",
+      "Clave": "1234",
+      "id": 6
+    },
+    {
+      "Identificacion": "12347856",
+      "Clave": "1234",
+      "id": 7
+    },
+    {
+      "Identificacion": "101000",
+      "Clave": "1234",
+      "id": 8
     }
   ],
   "Doctor": [
     {
-      "id": 1,
-      "NombreDoctor": "Albeiro Marin",
-      "Especialidad": "Medicina general",
-      "Correo": "Marindoc@gmail.com"
-    },
-    {
-      "id": 2,
-      "NombreDoctor": "Zulma Perez",
-      "Especialidad": "Pediatria",
-      "Correo": "doczulma@gmail.com"
-    },
-    {
       "id": 3,
-      "NombreDoctor": "Jeison Candela",
+      "NombreDoctor": "Jeison ",
       "Especialidad": "Odontologia",
       "Correo": "Candelajeison@gmail.com"
     },
     {
-      "NombreDoctor": "Guillermo Cartro",
+      "NombreDoctor": "Guillermo Castro",
       "Especialidad": "Pediatria",
       "Correo": "memocastro@gmail",
       "id": 4
+    },
+    {
+      "NombreDoctor": "Camila Gonzales",
+      "Especialidad": "Dermatologa",
+      "Correo": "docCamila@gmail.com",
+      "id": 5
     }
   ],
   "Agenda": [
     {
       "id": 1,
-      "Fecha": "2023-06-01",
-      "Hora": "9:00",
-      "Doctor": 1,
+      "FechaCita": "2023-06-01",
+      "HoraCita": "9:00",
+      "NombreDoctor": "Carmen Molina",
       "Lugar": "calle 52",
       "Especialidad": "Medicina general"
     },
     {
-      "id": 2,
-      "Fecha": "2023-06-03",
-      "Hora": "9:40",
-      "Doctor": 2,
-      "Lugar": "floresta",
-      "Especialidad": "Medicina general"
-    },
-    {
-      "id": 3,
-      "Fecha": "2023-06-04",
-      "Hora": "8:40",
-      "Doctor": 1,
-      "Lugar": "calle 42",
-      "Especialidad": "Medicina general"
+      "FechaCita": "19/10/2023",
+      "HoraCita": "8:40",
+      "NombreDoctor": "Camilo Perez",
+      "Lugar": "Calle 56",
+      "Especialidad": "ZZZZZZZZZZZZZZZZZ",
+      "id": 2
     }
   ],
-  "Citas": [
-    {
-      "id": 3,
-      "idPaciente": 3,
-      "idAgenda": 3,
-      "idMedico": 2,
-      "FechaCita": "2023-06-04",
-      "HoraCita": "8:40",
-      "Lugar": "calle 52",
-      "NombreDoctor": "Albeiro Marin",
-      "NumeroAutorizacion": "7410258",
-      "Especialidad": "Medicina general"
-    },
-    {
-      "id": 3,
-      "idPaciente": 3,
-      "idAgenda": 3,
-      "idMedico": 2,
-      "FechaCita": "2023-06-04",
-      "HoraCita": "8:40",
-      "Lugar": "calle 52",
-      "NombreDoctor": "Albeiro Marin",
-      "NumeroAutorizacion": "7410258",
-      "Especialidad": "Medicina general"
-    },
-    {
-      "id": 3,
-      "idPaciente": 3,
-      "idAgenda": 3,
-      "idMedico": 2,
-      "FechaCita": "2023-06-04",
-      "HoraCita": "8:40",
-      "Lugar": "calle 52",
-      "NombreDoctor": "Albeiro Marin",
-      "NumeroAutorizacion": "7410258",
-      "Especialidad": "Medicina general"
-    }
-  ]
+  "Citas": []
 }

@@ -3,14 +3,14 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 
 const Agenda = () => {
-  const url = "http://localhost:5000";
+  const url = "http://localhost:5000/Agenda";
   const [showAgendarForm, setShowAgendarForm] = useState(false);
   const [selectedAgenda, setSelectedAgenda] = useState(null);
 
   const [Agenda, setAgenda] = useState([]);
-  const [Fecha, setFecha] = useState("");
-  const [Hora, setHora] = useState("");
-  const [Doctor, setDoctor] = useState("");
+  const [FechaCita, setFechaCita] = useState("");
+  const [HoraCita, setHoraCita] = useState("");
+  const [NombreDoctor, setNombreDoctor] = useState("");
   const [Lugar, setLugar] = useState("");
   const [Especialidad, setEspecialidad] = useState("");
 
@@ -20,7 +20,7 @@ const Agenda = () => {
 
   const getAgenda = async () => {
     try {
-      const response = await axios.get(`${url}/Agenda`);
+      const response = await axios.get(url);
       setAgenda(response.data);
     } catch (error) {
       console.error("Error al obtener agendas:", error);
@@ -36,9 +36,9 @@ const Agenda = () => {
     event.preventDefault();
 
     const nuevaCita = {
-      Fecha,
-      Hora,
-      Doctor,
+      FechaCita,
+      HoraCita,
+      NombreDoctor,
       Lugar,
       Especialidad,
     };
@@ -57,9 +57,9 @@ const Agenda = () => {
         setAgenda(updatedAgendas);
 
         // Reinicia los campos del formulario
-        setFecha("");
-        setHora("");
-        setDoctor("");
+        setFechaCita("");
+        setHoraCita("");
+        setNombreDoctor("");
         setLugar("");
         setEspecialidad("");
       } else {
@@ -125,89 +125,91 @@ const Agenda = () => {
               </div>
             </div>
           </div>
-          
-          <div className="container">
-      <h1>Agendas Disponibles</h1>
-      {Agenda.map((agenda) => (
-        <div className="card" key={agenda.id}>
-          <div className="card-header">{agenda.Especialidad}</div>
-          <div className="card-body">
-            <p>
-              Fecha: {agenda.Fecha} - Hora: {agenda.Hora} - Médico: {agenda.Doctor}
-            </p>
-            <button
-              onClick={() => handleAgendarCitaClick(agenda)}
-              className="btn btn-primary"
-            >
-              Agendar Cita
-            </button>
-          </div>
-        </div>
-      ))}
 
-      {showAgendarForm && (
-        <div className="card mt-3">
-          <div className="card-header">Agendar Cita</div>
-          <div className="card-body">
-            <form onSubmit={handleAgendarCita}>
-              <div className="form-group">
-                <label htmlFor="Fecha">Fecha:</label>
-                <input
-                  type="text"
-                  id="Fecha"
-                  className="form-control"
-                  value={Fecha}
-                  onChange={(e) => setFecha(e.target.value)}
-                />
+          <div className="container">
+            {Agenda.map((agenda) => (
+              <div className="card" key={agenda.id}>
+                <div className="card-body">
+                  <p>
+                    Fecha: {agenda.FechaCita}
+                    Hora: {agenda.HoraCita}
+                    Médico:{agenda.NombreDoctor}
+                    Lugar: {agenda.Lugar} -
+                    Especialidad: {agenda.Especialidad}
+                  </p>
+                  <button
+                    onClick={() => handleAgendarCitaClick(agenda)}
+                    className="btn btn-primary"
+                  >
+                    Agendar Cita
+                  </button>
+                </div>
               </div>
-              <div className="form-group">
-                <label htmlFor="Hora">Hora:</label>
-                <input
-                  type="text"
-                  id="Hora"
-                  className="form-control"
-                  value={Hora}
-                  onChange={(e) => setHora(e.target.value)}
-                />
+            ))}
+
+            {showAgendarForm && (
+              <div className="card mt-3">
+                <div className="card-header">Agendar Cita</div>
+                <div className="card-body">
+                  <form onSubmit={handleAgendarCita}>
+                    <div className="form-group">
+                      <label htmlFor="Fecha">Fecha:</label>
+                      <input
+                        type="text"
+                        id="Fecha"
+                        className="form-control"
+                        value={FechaCita}
+                        onChange={(e) => setFechaCita(e.target.value)}
+                      />
+                    </div>
+                    <div className="form-group">
+                      <label htmlFor="Hora">Hora:</label>
+                      <input
+                        type="text"
+                        id="Hora"
+                        className="form-control"
+                        value={HoraCita}
+                        onChange={(e) => setHoraCita(e.target.value)}
+                      />
+                    </div>
+                    <div className="form-group">
+                      <label htmlFor="Doctor">Doctor:</label>
+                      <input
+                        type="text"
+                        id="Doctor"
+                        className="form-control"
+                        value={NombreDoctor}
+                        onChange={(e) => setNombreDoctor(e.target.value)}
+                      />
+                    </div>
+                    <div className="form-group">
+                      <label htmlFor="Lugar">Lugar:</label>
+                      <input
+                        type="text"
+                        id="Lugar"
+                        className="form-control"
+                        value={Lugar}
+                        onChange={(e) => setLugar(e.target.value)}
+                      />
+                    </div>
+                    <div className="form-group">
+                      <label htmlFor="Especialidad">Especialidad:</label>
+                      <input
+                        type="text"
+                        id="Especialidad"
+                        className="form-control"
+                        value={Especialidad}
+                        onChange={(e) => setEspecialidad(e.target.value)}
+                      />
+                    </div>
+                    <button type="submit" className="btn btn-success">
+                      Agendar
+                    </button>
+                  </form>
+                </div>
               </div>
-              <div className="form-group">
-                <label htmlFor="Doctor">Doctor:</label>
-                <input
-                  type="text"
-                  id="Doctor"
-                  className="form-control"
-                  value={Doctor}
-                  onChange={(e) => setDoctor(e.target.value)}
-                />
-              </div>
-              <div className="form-group">
-                <label htmlFor="Lugar">Lugar:</label>
-                <input
-                  type="text"
-                  id="Lugar"
-                  className="form-control"
-                  value={Lugar}
-                  onChange={(e) => setLugar(e.target.value)}
-                />
-              </div>
-              <div className="form-group">
-                <label htmlFor="Especialidad">Especialidad:</label>
-                <input
-                  type="text"
-                  id="Especialidad"
-                  className="form-control"
-                  value={Especialidad}
-                  onChange={(e) => setEspecialidad(e.target.value)}
-                />
-              </div>
-              <button type="submit" className="btn btn-success">
-                Agendar
-              </button>
-            </form>
+            )}
           </div>
-        </div>
-      )}
-    </div>
         </div>
 
         <footer className="main-footer">

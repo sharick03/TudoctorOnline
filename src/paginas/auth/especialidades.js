@@ -31,37 +31,12 @@ const Especialidades = () => {
                 data-accordion="false"
               >
                 <li className="nav-item">
-                  <Link to={"/dashboard"}>
-                    <b className="nav-link">
-                      <i className="nav-icon fas fa-tachometer-alt" />
-                      <p>
+                  <Link to={"/dashboard"} className="nav-link">
                         Inicio
-                      </p>
-                    </b>
                   </Link>
                 </li>
-                <li className="nav-item">
-                  <Link to="/historialcitas"></Link>
-                  <b className="nav-link">
-                    <i className="nav-icon fas fa-th" />
-                    <p>Historial Citas</p>
-                  </b>
-                </li>
-                <li className="nav-item">
-                  <Link to="/detalleagenda"></Link>
-                  <b className="nav-link">
-                    <i className="nav-icon fas fa-copy" />
-                    <p>
-                      Detalles de Agenda Médica
-                    </p>
-                  </b>
-                </li>
                 <li class="nav-item">
-                  <Link to="/perfil"></Link>
-                  <b class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Perfil</p>
-                  </b>
+                  <Link to={"/RegistroDoctor"} className="nav-link">Cerrar Sesion</Link>
                 </li>
               </ul>
             </nav>

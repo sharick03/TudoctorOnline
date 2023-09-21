@@ -1,7 +1,6 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import Swal from "sweetalert";
 import { show_alerta } from "../../functions";
 
 const RegistroPaciente = () => {
@@ -29,8 +28,7 @@ const RegistroPaciente = () => {
     } else if (Clave.trim() === "") {
       show_alerta("Digite su clave");
     } else {
-      const pacienteData = {
-        TipoDocumento,
+      const pacienteData = {TipoDocumento,
         Identificacion,
         Nombre_Apellido,
         FechaNaciPaci,
@@ -41,24 +39,25 @@ const RegistroPaciente = () => {
       if (operation === 1) {
         // REGISTRO PACIENTES
         axios.post(url, pacienteData).then((response) => {
-            Swal.fire("Éxito", "Paciente registrado correctamente");
-            navigate("../dashboard");
+            show_alerta("Éxito", "Paciente registrado correctamente");
+            navigate(window.location.href = "/login");
+            
           })
           .catch((error) => {
             //ERROR DE SOLICITUD
             console.error("Error al registrar paciente:", error);
-            Swal.fire("Error", "Hubo un error al registrar el paciente");
+            show_alerta("Error", "Hubo un error al registrar el paciente");
           });
-      } else if (operation === 2) {
+      }else if (operation === 2) {
         // Editar perfil de paciente
         const pacienteId = obtenerPacienteId();
         if (pacienteId) {
           axios.put(`${url}/${pacienteId}`, pacienteData).then((response) => {
-              Swal.fire("Éxito", "Perfil de paciente actualizado", "success");
+              show_alerta("Éxito", "Perfil de paciente actualizado");
             })
             .catch((error) => {
               console.error("Error al editar perfil del paciente:", error);
-              Swal.fire("Error", "Hubo un error al editar el perfil del paciente", "error");
+              show_alerta("Error", "Hubo un error al editar el perfil del paciente", "error");
             });
         } else {
           console.error("No se pudo obtener el ID del paciente para la edición.");
@@ -66,7 +65,6 @@ const RegistroPaciente = () => {
       }
     }
   };
-
   const obtenerPacienteId = () => {
     //la URL contiene el ID del paciente
     const urlParams = new URLSearchParams(window.location.search);
@@ -79,7 +77,6 @@ const RegistroPaciente = () => {
   return (
     <div className="hold-transition register-page">
       <div className="register-box">
-        <div className="register-logo"></div>
         <div className="card">
           <div className="card-body register-card-body">
             <p className="login-box-msg">Registro de pacientes</p>
@@ -96,12 +93,12 @@ const RegistroPaciente = () => {
                 />
                 <div className="input-group-append">
                   <div className="input-group-text">
-                    <span className="fas fa-user" />
+                    <span className="fa-solid fa-signature" />
                   </div>
                 </div>
               </div>
               <div className="input-group mb-3">
-                  <select
+                  <select className="form-control"
                     name="TipoDocumento"
                     value={TipoDocumento}
                     onChange={(e)=> setTipoDocumento(e.target.value)}
@@ -113,7 +110,7 @@ const RegistroPaciente = () => {
                   </select>
                   <div className="input-group-append">
                   <div className="input-group-text">
-                    <span className="fa-thin fa-id-card" />
+                    <span className="fa-regular fa-address-card" />
                   </div>
                 </div>
               </div>
@@ -143,11 +140,8 @@ const RegistroPaciente = () => {
                   value={FechaNaciPaci}
                   onChange={(e)=> setFechaNaciPaci(e.target.value)}
                 />
-                <div className="input-group-append">
-                  <div className="input-group-text">
-                    <span className="fas fa-user" />
-                  </div>
-                </div>
+
+                
               </div>
               <div className="input-group mb-3">
                 <input
@@ -161,7 +155,7 @@ const RegistroPaciente = () => {
                 />
                 <div className="input-group-append">
                   <div className="input-group-text">
-                    <span className="fas fa-user" />
+                    <span className="fa-solid fa-mobile-retro" />
                   </div>
                 </div>
               </div>
